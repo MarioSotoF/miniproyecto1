@@ -32,61 +32,56 @@
 // Use project enums instead of #define for ON and OFF.
 // Incluyo librerias creadas
 #include <xc.h>
-#include <stdint.h>
-
-
-uint8_t Incremento = 0;
-uint8_t Decremento = 0;
-uint8_t Counter = 0;
-
+#include "ADC.h"
+//uint8_t ADCV=0;
 void main(void) {
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.OSTS = 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
     OSCCONbits.SCS = 1;
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.RBIE = 1;
-    INTCONbits.RBIF = 0;
-    IOCBbits.IOCB0 = 1;
-    IOCBbits.IOCB1 = 1;
-    ANSEL = 0;
+    ANSEL = 0b00000001;
     ANSELH = 0;
-    TRISA = 0b00000000;
+    TRISA = 0b00000001;
     PORTA = 0;
-    TRISB = 0b00000011;
     TRISC = 0;
-    PORTB = 0;
     TRISD = 0;
     PORTD = 0;
     while (1) {
-        PORTD = Counter;
-    }
+        ADCen();
+        ADCON1bits.ADFM = 1;
+        ADCON0bits.ADON = 1;
+        ADCON0bits.GO = 1;
+        while (ADCON0bits.GO);
+        if (ADCV < 51) {
 
-    return;
+            PORTCbits.RC0 = 1;
+            PORTCbits.RC1 = 0;
+            PORTCbits.RC2 = 0;
+
+        }
+        if (ADCV >= 51 && ADCV <= 73) {
+
+            PORTCbits.RC0 = 0;
+            PORTCbits.RC1 = 1;
+            PORTCbits.RC2 = 0;
+
+        }
+        if (ADCV > 73) {
+
+            PORTCbits.RC0 = 0;
+            PORTCbits.RC1 = 0;
+            PORTCbits.RC2 = 1;
+
+        }
+
+    }
 }
 
 void __interrupt() ISR(void) {
-    if (INTCONbits.RBIF == 1) {
-        if (PORTBbits.RB0 == 1) {
-            Incremento = 1;
-        }
-        if (PORTBbits.RB0 == 0 && Incremento == 1) {
-            Incremento = 0;
-            Counter = Counter + 1;
-            return;
-        }
-        if (PORTBbits.RB1 == 1) {
-            Decremento = 1;
-        }
-        if (PORTBbits.RB1 == 0 && Decremento == 1) {
-            Decremento = 0;
-            Counter = Counter - 1;
-            return;
-        }
-
-        INTCONbits.RBIF = 0;
+    if (PIR1bits.ADIF == 1) {
+        ADCV = ADRESL;
+        PIR1bits.ADIF = 0;
         return;
     }
 }
