@@ -2716,6 +2716,7 @@ void main(void) {
 
     while (1) {
         PORTD = Counter;
+        spiWrite(Counter);
     }
 
     return;
@@ -2743,16 +2744,5 @@ void __attribute__((picinterrupt(("")))) ISR(void) {
         INTCONbits.RBIF = 0;
         return;
     }
-
-
-    if(SSPIF == 1){
-        spiRead();
-        spiWrite(Counter);
-        SSPIF = 0;
-    }
-
-
-
-
-
+# 110 "main.c"
 }

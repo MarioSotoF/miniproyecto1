@@ -67,6 +67,7 @@ void main(void) {
 
     while (1) {
         PORTD = Counter;
+        spiWrite(Counter);
     }
 
     return;
@@ -96,11 +97,11 @@ void __interrupt() ISR(void) {
     }
     
     
-    if(SSPIF == 1){
-        spiRead();
-        spiWrite(Counter);
-        SSPIF = 0;
-    }
+//    if(SSPIF == 1){
+//        spiRead();
+//        spiWrite(Counter);
+//        SSPIF = 0;
+//    }
     
     
    
