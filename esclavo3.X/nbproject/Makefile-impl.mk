@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=mp1_esclavo1.X
+PROJECTNAME=esclavo3.X
 
 # Active Configuration
 DEFAULTCONF=default

@@ -3,6 +3,48 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"56 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
+[e E1264 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1272 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1276 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1280 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"12 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\SPI.c
+[e E1264 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1272 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1276 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1280 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
 "20 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\ADC.c
 [v _ADCen ADCen `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
@@ -13,17 +55,25 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"38 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
+"41 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"62
+"71
 [v _ISR ISR `II(v  1 e 1 0 ]
+"12 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\SPI.c
+[v _spiInit spiInit `(v  1 e 1 0 ]
+"29
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+"34
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
 "21 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X/adc.h
 [v _ADCV ADCV `uc  1 e 1 0 ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S159 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S230 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -33,14 +83,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S168 . 1 `uc 1 . 1 0 :2:0 
+[s S239 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S173 . 1 `S159 1 . 1 0 `S168 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES173  1 e 1 @11 ]
-[s S104 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S244 . 1 `S230 1 . 1 0 `S239 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES244  1 e 1 @11 ]
+[s S157 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -49,17 +99,21 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S112 . 1 `S104 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES112  1 e 1 @12 ]
+[u S165 . 1 `S157 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES165  1 e 1 @12 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"850
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-[s S58 . 1 `uc 1 ADON 1 0 :1:0 
+[s S105 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S63 . 1 `uc 1 . 1 0 :1:0 
+[s S110 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -68,19 +122,21 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S72 . 1 `uc 1 . 1 0 :1:0 
+[s S119 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S75 . 1 `uc 1 . 1 0 :1:0 
+[s S122 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S78 . 1 `S58 1 . 1 0 `S63 1 . 1 0 `S72 1 . 1 0 `S75 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES78  1 e 1 @31 ]
+[u S125 . 1 `S105 1 . 1 0 `S110 1 . 1 0 `S119 1 . 1 0 `S122 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES125  1 e 1 @31 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1540
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S191 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S262 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -89,8 +145,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S199 . 1 `S191 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES199  1 e 1 @140 ]
+[u S270 . 1 `S262 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES270  1 e 1 @140 ]
 [s S22 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -105,31 +161,127 @@
 ]
 [u S33 . 1 `S22 1 . 1 0 `S28 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES33  1 e 1 @143 ]
-[s S247 . 1 `uc 1 . 1 0 :4:0 
+"2177
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S375 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S384 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S389 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S395 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S400 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S405 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S410 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S415 . 1 `S375 1 . 1 0 `S384 1 . 1 0 `S389 1 . 1 0 `S395 1 . 1 0 `S400 1 . 1 0 `S405 1 . 1 0 `S410 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES415  1 e 1 @148 ]
+[s S318 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S253 . 1 `S247 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES253  1 e 1 @159 ]
+[u S324 . 1 `S318 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES324  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+[s S51 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+`uc 1 ANS5 1 0 :1:5 
+`uc 1 ANS6 1 0 :1:6 
+`uc 1 ANS7 1 0 :1:7 
+]
+"3404
+[u S60 . 1 `S51 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES60  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"38 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
+"4277
+[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
+"4415
+[v _TRISA5 TRISA5 `VEb  1 e 0 @1069 ]
+"4457
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"4463
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
+"41 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"60
+"69
+} 0
+"12 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\SPI.c
+[v _spiInit spiInit `(v  1 e 1 0 ]
+{
+[v spiInit@sType sType `E1264  1 a 1 wreg ]
+[v spiInit@sType sType `E1264  1 a 1 wreg ]
+[v spiInit@sDataSample sDataSample `E1272  1 p 1 4 ]
+[v spiInit@sClockIdle sClockIdle `E1276  1 p 1 5 ]
+[v spiInit@sTransmitEdge sTransmitEdge `E1280  1 p 1 6 ]
+"14
+[v spiInit@sType sType `E1264  1 a 1 7 ]
+"27
 } 0
 "20 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\ADC.c
 [v _ADCen ADCen `(v  1 e 1 0 ]
 {
 "34
 } 0
-"62 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
+"71 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"68
+"83
+} 0
+"34 C:\Users\mario\Desktop\Cuarto Año 2021\Séptimo Semestre\Electrónica Digital 2\Febrero\miniproyecto1\mp1_esclavo1.X\SPI.c
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+{
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+"36
+[v spiWrite@dat dat `uc  1 a 1 0 ]
+"37
+} 0
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
+{
+"51
+} 0
+"29
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+{
+"32
 } 0
