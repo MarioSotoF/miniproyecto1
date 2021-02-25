@@ -25,7 +25,7 @@
 // CONFIG2
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
-#define _XTAL_FREQ (8000000)
+
 
 
 
@@ -50,10 +50,11 @@ void main(void) {
     TRISD = 0;
     PORTD = 0;
     TRISC = 0b00010000;
-    TRISA5 = 1;
+    TRISAbits.TRISA5 = 1;
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
     while (1) {
+        spiWrite(ADCV);
         ADCen();
         ADCON1bits.ADFM = 1;
         ADCON0bits.ADON = 1;
@@ -92,10 +93,10 @@ void __interrupt() ISR(void) {
         return;
     }
     
-    if(SSPIF == 1){
-        spiRead();
-        spiWrite(ADCV);
-        SSPIF = 0;
-    }
+//    if(SSPIF == 1){
+//        spiRead();
+//        spiWrite(ADCV);
+//        SSPIF = 0;
+//    }
     
 }

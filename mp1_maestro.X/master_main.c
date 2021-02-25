@@ -34,8 +34,11 @@
 // Incluyo librerias creadas
 #include <xc.h>
 #include "SPI.h"
+#include <stdint.h>
 //#include "adc.h"
-
+uint8_t potenciometro = 0;
+uint8_t contador = 0;
+uint8_t semaforo = 0;
 
 
 void main(void) {
@@ -47,12 +50,47 @@ void main(void) {
     ANSEL = 0;
     ANSELH = 0;
     TRISA = 0b00000000;
-    TRISC = 0b00010000;
+    TRISC = 0b00000000;
+    TRISCbits.TRISC4 = 1;
     PORTA = 0;
     TRISD=0;
     PORTD=0;
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     while (1) {
+        PORTCbits.RC0 = 0; //Slave Select
+        __delay_ms(1);
+
+        spiWrite(1);
+        potenciometro = spiRead();
+
+        __delay_ms(1);
+        PORTCbits.RC0 = 1; //Slave Deselect 
+
+        __delay_ms(250);
+
+        PORTCbits.RC1 = 0; //Slave Select
+        __delay_ms(1);
+
+        spiWrite(1);
+        contador = spiRead();
+
+        __delay_ms(1);
+        PORTCbits.RC1 = 1; //Slave Deselect 
+
+        __delay_ms(250);
+
+        PORTCbits.RC2 = 0; //Slave Select
+        __delay_ms(1);
+
+        spiWrite(1);
+        semaforo = spiRead();
+
+        __delay_ms(1);
+        PORTCbits.RC2 = 1; //Slave Deselect 
+
+        __delay_ms(250);
+
+
         
         
         
